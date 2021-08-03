@@ -1,0 +1,33 @@
+{
+    "py/object": "pros.conductor.project.Project",
+    "py/state": {
+        "project_name": "amogo",
+        "target": "v5",
+        "templates": {
+            "kernel": {
+                "location": "./template",
+                "metadata": {
+                    "cold_addr": 58720256,
+                    "cold_output": "bin/cold.package.bin",
+                    "hot_addr": 125829120,
+                    "hot_output": "bin/hot.package.bin",
+                    "origin": "local",
+                    "output": "bin/monolith.bin"
+                },
+                "name": "kernel",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": null,
+                "system_files": [],
+                "target": "v5",
+                "user_files": [],
+                "version": "3.0.0-beta1"
+            }
+        },
+        "upload_options": {
+            "compress_bin": true,
+            "description": "amogo :)",
+            "remote_name": "amogo",
+            "slot": 1
+        }
+    }
+}
