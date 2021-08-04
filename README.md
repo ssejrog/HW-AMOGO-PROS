@@ -27,5 +27,5 @@ VEX Forum
 [DOGO PROS](https://github.com/Unionjackjz1/HW-DOGO-PROS/)  
 [AMOGO PROS](https://github.com/Unionjackjz1/HW-AMOGO-PROS/) 
 
-[DOGO VEXCODE](https://github.com/Unionjackjz1/HW-DOGO-VEXCODE/)    
-[AMOGO VEXCODE](https://github.com/Unionjackjz1/HW-AMOGO-VEXCODE/)  
+[DOGO VEXcode](https://github.com/Unionjackjz1/HW-DOGO-VEXCODE/)    
+[AMOGO VEXcode](https://github.com/Unionjackjz1/HW-AMOGO-VEXCODE/)  
