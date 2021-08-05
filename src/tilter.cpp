@@ -12,12 +12,10 @@ bool is_at_down = false;
 int tilter_lock   = 0;
 int controller_tilter_timer = 0;
 
-bool is_in = false;
-bool is_mid = false;
-bool is_down = false;
+bool is_there = false;
 
 
-pros::Motor tilter(15, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
+pros::Motor tilter(15, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
 
 
 void set_tilter(int input)  { tilter = input; }
@@ -25,11 +23,6 @@ void set_tilter(int input)  { tilter = input; }
 void zero_tilter()    { tilter.tare_position(); }
 int  get_tilter()     { return tilter.get_position(); }
 int  get_tilter_vel() { return tilter.get_actual_velocity(); }
-
-void
-set_tilter_position(int target, int speed) {
-  tilter.move_absolute(target, speed);
-}
 
 
 ///
@@ -72,19 +65,30 @@ timeout(int target, int vel, int current) {
 
 // Tilter In
 void
-tilter_in (bool hold) {
-  // Run built in PID to bring tilter lift to TILTER_IN
-  set_tilter_position(TILTER_IN, 127);
-  is_in = timeout(TILTER_IN, get_tilter_vel(), get_tilter());
+set_tilter_position (int target, int speed, bool hold) {
+  // Run built in PID to bring tilter lift to target
+  tilter.move_absolute(target, speed);
+  is_there = timeout(target, get_tilter_vel(), get_tilter());
 
   // If running during autonomous,
   if (hold) {
-    // Set states so the mogo will be in the last position in driver it was in during auto
-    tilter_up = true;
-    is_at_down = false;
     // Loop if robot isn't there yet
     pros::delay(DELAY_TIME);
-    tilter_in(!is_in);
+    set_tilter_position(target, speed, !is_there);
+  }
+}
+
+
+// Tilter In
+void
+tilter_in (bool hold) {
+  // Run built in PID to bring tilter lift to TILTER_IN
+  set_tilter_position(TILTER_IN, 100, hold);
+
+  // Set states so the mogo will be in the last position in driver it was in during auto
+  if (hold) {
+    tilter_up = true;
+    is_at_down = false;
   }
 }
 
@@ -92,16 +96,11 @@ tilter_in (bool hold) {
 void
 tilter_down(bool hold) {
   // Run built in PID to bring tilter lift to TILTER_DOWN
-  set_tilter_position(TILTER_DOWN, 127);
-  is_down = timeout(TILTER_DOWN, get_tilter_vel(), get_tilter());
+  set_tilter_position(TILTER_DOWN, 100, hold);
 
-  // If running during autonomous,
+  // Set states so the mogo will be in the last position in driver it was in during auto
   if (hold) {
-    // Set states so the mogo will be in the last position in driver it was in during auto
     is_at_down = true;
-    // Loop if robot isn't there yet
-    pros::delay(DELAY_TIME);
-    tilter_down(!is_down);
   }
 }
 
@@ -109,17 +108,12 @@ tilter_down(bool hold) {
 void
 tilter_out(bool hold) {
   // Run built in PID to bring tilter lift to TILTER_OUT
-  set_tilter_position(TILTER_OUT, 127);
-  is_mid = timeout(TILTER_OUT, get_tilter_vel(), get_tilter());
+  set_tilter_position(TILTER_OUT, 100, hold);
 
-  // If running during autonomous,
+  // Set states so the mogo will be in the last position in driver it was in during auto
   if (hold) {
-    // Set states so the mogo will be in the last position in driver it was in during auto
     tilter_up = false;
     is_at_down = false;
-    // Loop if robot isn't there yet
-    pros::delay(DELAY_TIME);
-    tilter_out(!is_mid);
   }
 }
 
@@ -153,7 +147,7 @@ tilter_control() {
     controller_tilter_timer = 0;
   }
 
-  // Bring tilter to position based on is_at_down and tilter_up
+  // Bring tilter to positoin based on is_at_down and tilter_up
   if (is_at_down)
     tilter_down();
   else if (tilter_up)
