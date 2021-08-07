@@ -1,6 +1,6 @@
 # Harvard-Westlake's AMOGO - PROS
   
-This was made on VEXos 1.0.13, and hasn't been tested on 1.1
+This was made on VEXos 1.0.13
 ---
   
 AMOGO (alliance mobile goal) is a ring focused robot that can fill a goal with rings in autonomous, hold an alliance mobile goal, platform, lift tipped mobile goals, and hold a neutral goal to the side of the robot. 
