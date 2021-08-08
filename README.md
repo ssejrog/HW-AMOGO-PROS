@@ -13,7 +13,7 @@ AMOGO (alliance mobile goal) is a ring focused robot that can fill a goal with r
 - Tank Drive (by default)
 
 ## Useful File Descriptions:
- - `src/auton.cpp`: Autonomous routines (Solo AWP).
+ - `src/auton.cpp`: [Autonomous routines (Solo AWP)](https://youtu.be/p1lgbKy1ZBE).
  - `src/conveyor.cpp`: Conveyor functions for opcontrol and autonomous, with antijam function.
  - `src/main.cpp`: Main file with on screen autonomous selection.
  - `src/mogo.cpp`: Mogo functions for opcontrol and autonomous.
