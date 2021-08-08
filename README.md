@@ -25,7 +25,7 @@ This code uses EZ-Template, a simple PROS template that handles drive base funct
 ## External Links
 
 Reveal  
-VEX Forum  
+VEX Forum with CAD  
 
 Basic Code  
 [DOGO VEXcode](https://github.com/Unionjackjz1/HW-DOGO-VEXCODE/)    
