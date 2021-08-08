@@ -34,3 +34,13 @@ Basic Code
 Advanced Code  
 [DOGO PROS](https://github.com/Unionjackjz1/HW-DOGO-PROS/)  
 [AMOGO PROS](https://github.com/Unionjackjz1/HW-AMOGO-PROS/) 
+
+## Contributors
+Thank you to the following for making make this project come to life:
+- Avi Dube
+- Ben Ren
+- Dru Reed
+- Jake Futterman
+- Jess Zarchi
+- Tripp Reed
+- Yuanyang Lu
