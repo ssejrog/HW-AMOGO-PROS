@@ -24,8 +24,8 @@ This code uses EZ-Template, a simple PROS template that handles drive base funct
 
 ## External Links
 
-Reveal  
-VEX Forum with CAD  
+[Reveal Video](https://youtu.be/mmhPOVIbJWI)  
+[VEX Forum with CAD](https://www.vexforum.com/t/harvard-westlake-robotics-amogo-x-dogo-reveal/92670)  
 
 Basic Code  
 [DOGO VEXcode](https://github.com/Unionjackjz1/HW-DOGO-VEXCODE/)    
