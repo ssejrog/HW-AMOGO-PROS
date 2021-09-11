@@ -1,6 +1,6 @@
 # Harvard-Westlake's AMOGO - PROS
   
-This was made on VEXos 1.0.13
+This was made on VEXos 1.0.13, PROS Kernel 3.5.0
 ---
 AMOGO (alliance mobile goal) is a ring focused robot that can fill a goal with rings in autonomous, hold an alliance mobile goal, platform, lift tipped mobile goals, and hold a neutral goal to the side of the robot.
 ![](AMOGO-Render.png)   
@@ -21,6 +21,14 @@ AMOGO (alliance mobile goal) is a ring focused robot that can fill a goal with r
 
 ## EZ-Template
 This code uses EZ-Template, a simple PROS template that handles drive base functions for VEX robots. [That can be found here](https://github.com/Unionjackjz1/EZ-Template).
+
+### Warning
+
+EZ-Template uses a unique PROS kernel that makes the emulated LCD pink instead of green.  Using this with hot/cold linking enabled (it is by default) could possible delete other PROS projects in other slots on your brain. 
+
+To disable hot/cold linking, open your `Makefile` and change `USE_PACKAGE:=1` to `USE_PACKAGE:=0`.  Doing this will make wireless downloading slower. 
+
+[Read more about hot/cold linking on the PROS docs](https://pros.cs.purdue.edu/v5/tutorials/topical/wireless-upload.html). 
 
 ## External Links
 
